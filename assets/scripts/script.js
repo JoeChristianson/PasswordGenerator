@@ -44,13 +44,12 @@ function writePassword(){
     password.text = "";
     password.includedTypes = [];
     password.length = null;
-    for (let type in types){
+    for (var type in types){
         types[type].isIncluded = false;
         types[type].isRequired = false;
     }
     passwordDisplay.value = generatePassword();
 }
-
 
 function generatePassword(){
     // This continues prompting the user to enter a password length until input is between 8 and 129 (inclusive)
@@ -70,10 +69,8 @@ function generatePassword(){
         types.lowercase.isRequired = true;
         password.includedTypes.push(types.lowercase)
     }
-    
     return fillText();
 }
-
 
 // this is where random characters which are of the included types are added to the password text
 function fillText(){
@@ -84,11 +81,12 @@ function fillText(){
         // 
         password.text = password.text + pickRandomFrom(selectedType.characters);
       }
-      for (let type in types){
+    //   This checks to see if all the Required types are included in password, if not, it resets the password and isIncluded properties and reinvokes the fillText function.
+      for (var type in types){
           if (types[type].isIncluded !== types[type].isRequired ){
               console.log(password.text)
               password.text = ""
-              for (let type in types){
+              for (var type in types){
                 types[type].isIncluded = false;
             }
               fillText();
@@ -97,12 +95,9 @@ function fillText(){
       return password.text;
 }
 
-
-
-
-// 
+// Adds write password function to 
 generateBtn.addEventListener("click", writePassword);
-// 
+// returns a random element from an array or string
 function pickRandomFrom(str){
     return str[Math.floor(Math.random()*str.length)];
   }
