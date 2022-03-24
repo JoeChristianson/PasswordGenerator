@@ -13,7 +13,7 @@ This web app generates random passwords of a specified length that include the t
 
 ## Screenshot
 
-!(./assets/images/screenshot.png)
+![screenshot](./assets/images/screenshot.png)
 
 ## Live Site
 
