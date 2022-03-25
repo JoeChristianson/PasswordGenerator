@@ -53,7 +53,7 @@ function writePassword(){
 
 function generatePassword(){
     // This continues prompting the user to enter a password length until input is between 8 and 129 (inclusive)
-    while (!(password.length>3)||(!(password.length<129))){
+    while (!(password.length>7)||(!(password.length<129))){
         password.length = parseInt(prompt("Enter a length between 8 and 128"));
       }
     //   this cycles through the types object asking the user if they want to include a type in the password, if so, types object and password objects reflect that.
